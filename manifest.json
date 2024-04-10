@@ -2,9 +2,7 @@
     "display_name": "状态栏",
     "loading_order": 9,
     "requires": [],
-    "optional": [
-        "status"
-    ],
+    "optional": [],
     "js": "index.js",
     "css": "style.css",
     "author": "LanStarD",
