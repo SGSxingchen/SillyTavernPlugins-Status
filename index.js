@@ -1,14 +1,14 @@
-import { getStringHash, debounce, waitUntilCondition, extractAllWords } from '../../utils.js';
-import { getContext, getApiUrl, extension_settings, doExtrasFetch, modules } from '../../extensions.js';
-import { animation_duration, eventSource, event_types, extension_prompt_types, generateQuietPrompt, is_send_press, saveSettingsDebounced, substituteParams } from '../../../script.js';
-import { is_group_generating, selected_group } from '../../group-chats.js';
-import { registerSlashCommand } from '../../slash-commands.js';
-import { loadMovingUIState } from '../../power-user.js';
-import { dragElement } from '../../RossAscends-mods.js';
-import { getTextTokens, tokenizers } from '../../tokenizers.js';
+import { getStringHash, debounce, waitUntilCondition, extractAllWords } from '../../../utils.js';
+import { getContext, getApiUrl, extension_settings, doExtrasFetch, modules } from '../../../extensions.js';
+import { animation_duration, eventSource, event_types, extension_prompt_types, generateQuietPrompt, is_send_press, saveSettingsDebounced, substituteParams } from '../../../../script.js';
+import { is_group_generating, selected_group } from '../../../group-chats.js';
+import { registerSlashCommand } from '../../../slash-commands.js';
+import { loadMovingUIState } from '../../../power-user.js';
+import { dragElement } from '../../../RossAscends-mods.js';
+import { getTextTokens, tokenizers } from '../../../tokenizers.js';
 export { MODULE_NAME };
 
-const MODULE_NAME = '1_status';
+const MODULE_NAME = 'status';
 
 let lastCharacterId = null;
 let lastGroupId = null;
@@ -78,7 +78,7 @@ const defaultSettings = {
     depth: 1
 };
 
-//加载设置
+//加载设置_
 function loadSettings() {
     
     if (extension_settings.status === undefined) {
