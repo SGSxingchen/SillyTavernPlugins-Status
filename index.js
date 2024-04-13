@@ -176,6 +176,8 @@ function isRegexMatchedStatus(string) {
     return /<Status>[\s\S]*<\/Status>/.test(string);
 }
 function setstatusContext(value, saveToMessage) {
+    var context = getContext();
+    const chat = getContext().chat;
     // 未选择任何角色或组
     if (!context.groupId && context.characterId === undefined) {
         return;
@@ -197,7 +199,7 @@ function setstatusContext(value, saveToMessage) {
         return;
     }
     
-    const chat = getContext().chat;
+    
     console.log(chat)
     let depth = extension_settings.status.depth;
     let position = extension_settings.status.position;
