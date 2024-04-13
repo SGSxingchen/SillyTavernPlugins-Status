@@ -1,11 +1,8 @@
-import { getStringHash, debounce, waitUntilCondition, extractAllWords } from '../../../utils.js';
-import { getContext, getApiUrl, extension_settings, doExtrasFetch, modules } from '../../../extensions.js';
-import { animation_duration, eventSource, event_types, extension_prompt_types, generateQuietPrompt, is_send_press, saveSettingsDebounced, substituteParams } from '../../../../script.js';
-import { is_group_generating, selected_group } from '../../../group-chats.js';
-import { registerSlashCommand } from '../../../slash-commands.js';
+import { getStringHash, debounce} from '../../../utils.js';
+import { getContext,extension_settings} from '../../../extensions.js';
+import { animation_duration, eventSource, event_types, extension_prompt_types,is_send_press, saveSettingsDebounced} from '../../../../script.js';
 import { loadMovingUIState } from '../../../power-user.js';
 import { dragElement } from '../../../RossAscends-mods.js';
-import { getTextTokens, tokenizers } from '../../../tokenizers.js';
 export { MODULE_NAME };
 
 const MODULE_NAME = 'status';
