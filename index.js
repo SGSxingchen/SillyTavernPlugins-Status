@@ -332,8 +332,6 @@ function setupListeners() {
     $('#status_stroageData').off('click').on('input', onstatusStroageDataInput);
     $('#status_template').off('click').on('input', onstatusTemplateInput);
     $('#status_depth').off('click').on('input', onstatusDepthInput);
-
-
     $('#status_autoNewSave').off('click').on('input',onAutoSave);
     $('input[name="status_position"]').off('click').on('change', onstatusPositionChange);
     $('#statusPreview').off('click').on('click', function () {        
@@ -342,7 +340,6 @@ function setupListeners() {
         $('#statusPreviewBlock').append(statusHTML);
         $('#statusPreviewBlock').slideToggle(200, 'swing');
     });
-
     $('#statusSettingsBlockToggle').off('click').on('click', function () {
         $('#statusSettingsBlock').slideToggle(200, 'swing');
     });
