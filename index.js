@@ -167,12 +167,15 @@ function getLateststatusFromChat() {
     return '';
 }
 
-//聊天事件监听
-async function onChatEvent() {
-    const context = getContext();
-    // toastr.info("事件触发","事件触发")
-    const chat = context.chat;
-    console.log(chat)
+
+function reinsertstatus() {
+    const existingValue = generateStatusBarHTML(extension_settings.status.stroageData);
+    setstatusContext(existingValue, false);
+}
+function isRegexMatchedStatus(string) {
+    return /<Status>[\s\S]*<\/Status>/.test(string);
+}
+function setstatusContext(value, saveToMessage) {
     // 未选择任何角色或组
     if (!context.groupId && context.characterId === undefined) {
         return;
@@ -185,9 +188,6 @@ async function onChatEvent() {
 
     // 聊天/角色/群组已更改
     if ((context.groupId && lastGroupId !== context.groupId) || (context.characterId !== lastCharacterId) || (context.chatId !== lastChatId)) {
-        const lateststatus = generateStatusBarHTML(extension_settings.status.stroageData)
-        setstatusContext(lateststatus, false);
-        saveLastValues();
         return;
     }
 
@@ -196,28 +196,6 @@ async function onChatEvent() {
     if (chat.length === 0 || (lastMessageId === chat.length && getStringHash(chat[chat.length - 1].mes) === lastMessageHash)) {
         return;
     }
-
-
-    try {
-        reinsertstatus();
-    }
-    catch (error) {
-        console.log(error);
-    }
-    finally {
-        saveLastValues();
-        saveStatus();
-    }
-}
-
-function reinsertstatus() {
-    const existingValue = generateStatusBarHTML(extension_settings.status.stroageData);
-    setstatusContext(existingValue, false);
-}
-function isRegexMatchedStatus(string) {
-    return /<Status>[\s\S]*<\/Status>/.test(string);
-}
-function setstatusContext(value, saveToMessage) {
     
     const chat = getContext().chat;
     console.log(chat)
